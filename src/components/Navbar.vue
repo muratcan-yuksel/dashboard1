@@ -4,8 +4,8 @@
       <b-navbar-brand href="#"> Dashboard </b-navbar-brand>
 
       <b-navbar-toggle target="nav-collapse">
-        <i data-vi="angle-bottom"></i
-      ></b-navbar-toggle>
+        <i data-vi="menu"></i>
+      </b-navbar-toggle>
 
       <b-collapse id="nav-collapse" is-nav>
         <b-navbar-nav>
