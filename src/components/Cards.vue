@@ -51,17 +51,26 @@ export default {};
 
 <style scoped>
 /* #cardComponentContainer {
-  display: flex;
-  flex-wrap: wrap;
+ 
 } */
 .cardContainer {
-  border: 1px solid black;
+  border-bottom: 1px solid black;
+  height: 10em;
+  border-left: 1px solid black;
 }
 .cardContent {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid grey;
+  border-bottom: 1px dashed grey;
+}
+.cardText {
+  font-weight: 900;
+}
+.cardBottom {
+  /* margin-top: 2em; */
+  padding-top: 2em;
+  color: rgb(194, 189, 189);
 }
 </style>
