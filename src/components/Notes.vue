@@ -1,8 +1,9 @@
 <template>
   <div v-if="users">
+    <h3>Notes</h3>
     <div class="textBody" v-for="user in users" :key="user.id">
-      <p>Title: {{ user.title }}</p>
-      <p>Text: {{ user.body }}</p>
+      <p class="noteTitle">{{ user.title }}</p>
+      <p class="noteText">{{ user.body }}</p>
     </div>
   </div>
   <div v-else>
@@ -27,9 +28,7 @@ export default {
     };
     try {
       let res = await axios(config);
-      console.log(res.data);
       this.users = res.data.splice(0, 5);
-      console.log(this.users);
     } catch (err) {
       console.log(err);
     }
@@ -42,5 +41,9 @@ export default {
   border-left: 1px solid grey;
   border-right: 1px solid grey;
   border-bottom: 1px solid grey;
+  padding: 1em;
+}
+.noteTitle {
+  font-weight: 500;
 }
 </style>
