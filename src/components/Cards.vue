@@ -57,6 +57,7 @@ export default {};
   border-bottom: 1px solid black;
   height: 10em;
   border-left: 1px solid black;
+  border-right: 1px solid black;
 }
 .cardContent {
   display: flex;
