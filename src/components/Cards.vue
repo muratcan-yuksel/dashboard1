@@ -51,13 +51,15 @@ export default {};
 
 <style scoped>
 /* #cardComponentContainer {
- 
+  margin-bottom: 2em;
 } */
 .cardContainer {
   border-bottom: 1px solid black;
   height: 10em;
   border-left: 1px solid black;
   border-right: 1px solid black;
+  background-color: white;
+  /* margin: 0 2px 0 2px; */
 }
 .cardContent {
   display: flex;

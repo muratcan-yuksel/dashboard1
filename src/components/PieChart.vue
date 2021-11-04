@@ -46,6 +46,7 @@ export default {
 
 <style scoped>
 #chart {
-  border: 1px solid grey;
+  border: 1px solid rgb(197, 191, 191);
+  background-color: white;
 }
 </style>

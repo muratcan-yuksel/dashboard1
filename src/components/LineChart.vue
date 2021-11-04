@@ -66,4 +66,9 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+#chart {
+  border: 1px solid rgb(197, 191, 191);
+  background-color: white;
+}
+</style>
