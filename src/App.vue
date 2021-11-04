@@ -9,17 +9,28 @@
       <Navbar />
       <div id="cardsDiv">
         <Cards />
+        <b-container class="bv-example-row">
+          <b-row>
+            <b-col cols="12" sm="7"><LineChart /></b-col>
+            <b-col cols="12" sm="5"> <PieChart /></b-col>
+          </b-row>
+        </b-container>
       </div>
     </div>
   </div>
 </template>
 <script>
+//component imports
+//navbar
+import Navbar from "./components/Navbar.vue";
+// cards
+import Cards from "./components/Cards.vue";
+//line chart
+import LineChart from "./components/LineChart.vue";
+//pie chart
+import PieChart from "./components/PieChart.vue";
 //import vivid icons
 import "vivid-icons/dist/vivid-icons.min.js";
-//navbar import
-import Navbar from "./components/Navbar.vue";
-//import cards
-import Cards from "./components/Cards.vue";
 //import bootstrap vue here
 import Vue from "vue";
 import { BootstrapVue, IconsPlugin } from "bootstrap-vue";
@@ -36,10 +47,15 @@ export default {
   components: {
     Navbar,
     Cards,
+    LineChart,
+    PieChart,
   },
 };
 </script>
 <style>
+#app {
+  background-color: rgba(203, 203, 210, 0.15);
+}
 #cardsDiv {
   margin: 3em;
 }
