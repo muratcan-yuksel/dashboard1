@@ -59,7 +59,6 @@
           </b-row>
         </b-container>
       </div>
-      >
     </div>
     <div v-else>
       <h4>Loading...</h4>
