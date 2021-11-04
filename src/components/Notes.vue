@@ -1,5 +1,5 @@
 <template>
-  <div v-if="users">
+  <div v-if="users" id="notesComponent">
     <h3>Notes</h3>
     <div class="textBody" v-for="user in users" :key="user.id">
       <p class="noteTitle">{{ user.title }}</p>
@@ -29,6 +29,7 @@ export default {
     try {
       let res = await axios(config);
       this.users = res.data.splice(0, 5);
+      console.log(res.data);
     } catch (err) {
       console.log(err);
     }
@@ -37,6 +38,9 @@ export default {
 </script>
 
 <style scoped>
+#notesComponent {
+  background-color: white;
+}
 .textBody {
   border-left: 1px solid grey;
   border-right: 1px solid grey;
