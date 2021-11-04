@@ -11,6 +11,7 @@
   </div>
 </template>
 <script>
+//import navbar globally
 import Navbar from "./components/Navbar.vue";
 //import vivid icons
 import "vivid-icons/dist/vivid-icons.min.js";
