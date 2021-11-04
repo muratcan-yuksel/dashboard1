@@ -13,7 +13,7 @@
             <router-link to="/">Home</router-link> |
           </b-nav-item>
           <b-nav-item href="#">
-            <router-link to="/about">About</router-link>
+            <router-link to="/users">Users</router-link>
           </b-nav-item>
         </b-navbar-nav>
 
@@ -55,4 +55,8 @@
 export default {};
 </script>
 
-<style></style>
+<style>
+router-link {
+  color: white;
+}
+</style>

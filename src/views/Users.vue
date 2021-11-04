@@ -1,38 +1,44 @@
 <template id="usersComponent">
-  <div id="userContainer" v-if="users">
-    <b-container class="bv-example-row">
-      <b-row>
-        <b-col cols="4" sm="4" md="4" lg="4" xl="4">
-          <h4>Name</h4>
-          <div v-for="user in users" :key="user.id">
-            <div class="userNames">{{ user.name }}</div>
-          </div></b-col
-        >
-        <b-col cols="4" sm="4" md="4" lg="4" xl="4">
-          <h4>UserName</h4>
-          <div v-for="user in users" :key="user.id">
-            <div class="userNicks">{{ user.username }}</div>
-          </div></b-col
-        >
-        <b-col cols="4" sm="4" md="4" lg="4" xl="4">
-          <h4>Website</h4>
-          <div v-for="user in users" :key="user.id">
-            <div class="userWebsites">{{ user.website }}</div>
-          </div></b-col
-        >
-      </b-row>
-    </b-container>
-  </div>
-  <div v-else>
-    <h4>Loading...</h4>
+  <div>
+    <Navbar />
+    <div id="userContainer" v-if="users">
+      <b-container class="bv-example-row">
+        <b-row>
+          <b-col cols="4" sm="4" md="4" lg="4" xl="4">
+            <h4>Name</h4>
+            <div v-for="user in users" :key="user.id">
+              <div class="userNames">{{ user.name }}</div>
+            </div></b-col
+          >
+          <b-col cols="4" sm="4" md="4" lg="4" xl="4">
+            <h4>UserName</h4>
+            <div v-for="user in users" :key="user.id">
+              <div class="userNicks">{{ user.username }}</div>
+            </div></b-col
+          >
+          <b-col cols="4" sm="4" md="4" lg="4" xl="4">
+            <h4>Website</h4>
+            <div v-for="user in users" :key="user.id">
+              <div class="userWebsites">{{ user.website }}</div>
+            </div></b-col
+          >
+        </b-row>
+      </b-container>
+    </div>
+    <div v-else>
+      <h4>Loading...</h4>
+    </div>
   </div>
 </template>
 
 <script>
+//navabr import
+import Navbar from "../components/Navbar.vue";
 const url = "https://jsonplaceholder.typicode.com/users";
 
 import axios from "axios";
 export default {
+  components: { Navbar },
   data() {
     return {
       users: null,
