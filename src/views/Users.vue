@@ -9,7 +9,7 @@
           <b-col> <h4>Website</h4></b-col>
         </b-row>
       </b-container>
-      <!-- editing functionality-->
+      <!-- add user functionality-->
       <b-container class="bv-example-row">
         <b-row>
           <b-col cols="3"> <input v-model="name" placeholder="name" /></b-col>
@@ -28,25 +28,38 @@
       <div v-for="user in users" :key="user.id">
         <b-container class="bv-example-row">
           <b-row>
-            <b-col class="userNames">{{ user.name }}</b-col>
-            <b-col class="userNicks">{{ user.username }}</b-col>
-            <b-col class="userWebsites">{{ user.website }}</b-col>
+            <!-- <b-col class="userNames">{{ user.name }}</b-col> -->
+            <b-col class="userNames">
+              <input
+                type="text"
+                v-model="user.name"
+                :disabled="!isEditing"
+                :class="{ view: !isEditing }"
+            /></b-col>
+
+            <b-col class="userNicks">
+              <input
+                type="text"
+                v-model="user.username"
+                :disabled="!isEditing"
+                :class="{ view: !isEditing }"
+            /></b-col>
+            <b-col class="userWebsites">
+              <input
+                type="text"
+                v-model="user.website"
+                :disabled="!isEditing"
+                :class="{ view: !isEditing }"
+            /></b-col>
+            <button @click="isEditing = !isEditing" v-if="!isEditing">
+              Edit
+            </button>
+            <button @click="save" v-else-if="isEditing">Save</button>
+            <button v-if="isEditing" @click="cancel">Cancel</button>
           </b-row>
         </b-container>
       </div>
       >
-      <!-- <b-col cols="4" sm="4" md="4" lg="4" xl="4">
-            <h4>UserName</h4>
-            <div v-for="user in users" :key="user.id">
-              <div class="userNicks">{{ user.username }}</div>
-            </div></b-col
-          >
-          <b-col cols="4" sm="4" md="4" lg="4" xl="4">
-            <h4>Website</h4>
-            <div v-for="user in users" :key="user.id">
-              <div class="userWebsites">{{ user.website }}</div>
-            </div></b-col
-          > -->
     </div>
     <div v-else>
       <h4>Loading...</h4>
@@ -64,6 +77,7 @@ export default {
   components: { Navbar },
   data() {
     return {
+      isEditing: false,
       users: [],
       name: "",
       username: "",
@@ -71,6 +85,14 @@ export default {
     };
   },
   methods: {
+    save() {
+      this.cachedUser = Object.assign({}, this.users);
+      this.isEditing = false;
+    },
+    cancel() {
+      this.users = Object.assign({}, this.cachedUser);
+      this.isEditing = false;
+    },
     addUser() {
       this.users.push({
         name: this.name,
@@ -80,6 +102,8 @@ export default {
     },
   },
   async mounted() {
+    this.cachedUser = Object.assign({}, this.users);
+
     const config = {
       method: "get",
       url: url,
