@@ -15,7 +15,14 @@
             <b-col cols="12" sm="5" md="5" lg="5" xl="5"> <PieChart /></b-col>
           </b-row>
         </b-container>
-        <BarChart />
+        <div id="chartAnd">
+          <b-container class="bv-example-row">
+            <b-row>
+              <b-col cols="12" sm="6" md="6" lg="6" xl="6"><BarChart /></b-col>
+              <b-col cols="12" sm="6" md="6" lg="6" xl="6"> <Notes /></b-col>
+            </b-row>
+          </b-container>
+        </div>
       </div>
     </div>
   </div>
@@ -32,6 +39,9 @@ import LineChart from "./components/LineChart.vue";
 import PieChart from "./components/PieChart.vue";
 //bar chart
 import BarChart from "./components/BarChart.vue";
+//notes
+import Notes from "./components/Notes.vue";
+//////
 //import vivid icons
 import "vivid-icons/dist/vivid-icons.min.js";
 //import bootstrap vue here
@@ -53,6 +63,7 @@ export default {
     LineChart,
     PieChart,
     BarChart,
+    Notes,
   },
 };
 </script>
