@@ -12,14 +12,12 @@
       <!-- editing functionality-->
       <b-container class="bv-example-row">
         <b-row>
+          <b-col cols="3"> <input v-model="name" placeholder="name" /></b-col>
           <b-col cols="3">
-            <input v-model="name" placeholder="edit me"
+            <input v-model="username" placeholder="user name"
           /></b-col>
           <b-col cols="3">
-            <input v-model="username" placeholder="edit me"
-          /></b-col>
-          <b-col cols="3">
-            <input v-model="website" placeholder="edit me"
+            <input v-model="website" placeholder="website"
           /></b-col>
           <b-col cols="3">
             <button @click="addUser">Add new user</button>
