@@ -4,13 +4,40 @@
     <div id="userContainer" v-if="users">
       <b-container class="bv-example-row">
         <b-row>
-          <b-col cols="4" sm="4" md="4" lg="4" xl="4">
-            <h4>Name</h4>
-            <div v-for="user in users" :key="user.id">
-              <div class="userNames">{{ user.name }}</div>
-            </div></b-col
-          >
-          <b-col cols="4" sm="4" md="4" lg="4" xl="4">
+          <b-col> <h4>Name</h4></b-col>
+          <b-col> <h4>User Name</h4></b-col>
+          <b-col> <h4>Website</h4></b-col>
+        </b-row>
+      </b-container>
+      <!-- editing functionality-->
+      <b-container class="bv-example-row">
+        <b-row>
+          <b-col cols="3">
+            <input v-model="name" placeholder="edit me"
+          /></b-col>
+          <b-col cols="3">
+            <input v-model="username" placeholder="edit me"
+          /></b-col>
+          <b-col cols="3">
+            <input v-model="website" placeholder="edit me"
+          /></b-col>
+          <b-col cols="3">
+            <button @click="addUser">Add new user</button>
+          </b-col>
+        </b-row>
+      </b-container>
+
+      <div v-for="user in users" :key="user.id">
+        <b-container class="bv-example-row">
+          <b-row>
+            <b-col class="userNames">{{ user.name }}</b-col>
+            <b-col class="userNicks">{{ user.username }}</b-col>
+            <b-col class="userWebsites">{{ user.website }}</b-col>
+          </b-row>
+        </b-container>
+      </div>
+      >
+      <!-- <b-col cols="4" sm="4" md="4" lg="4" xl="4">
             <h4>UserName</h4>
             <div v-for="user in users" :key="user.id">
               <div class="userNicks">{{ user.username }}</div>
@@ -21,9 +48,7 @@
             <div v-for="user in users" :key="user.id">
               <div class="userWebsites">{{ user.website }}</div>
             </div></b-col
-          >
-        </b-row>
-      </b-container>
+          > -->
     </div>
     <div v-else>
       <h4>Loading...</h4>
@@ -41,8 +66,20 @@ export default {
   components: { Navbar },
   data() {
     return {
-      users: null,
+      users: [],
+      name: "",
+      username: "",
+      website: "",
     };
+  },
+  methods: {
+    addUser() {
+      this.users.push({
+        name: this.name,
+        username: this.username,
+        website: this.website,
+      });
+    },
   },
   async mounted() {
     const config = {
