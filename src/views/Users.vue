@@ -67,7 +67,7 @@ export default {
 }
 #userContainer {
   border: 1px solid black;
-  margin: 2em;
+  margin-top: 2em;
   padding: 10px;
   box-shadow: 5px 10px #888888;
 }
